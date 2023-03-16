@@ -1,0 +1,45 @@
+#M-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#M-rentSpan {
+  width: 30px;
+  height: 15px;
+  background-color: #3478f6;
+  color: #ffff;
+  padding: 5px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+#Y-rentSpan {
+  margin: 0px 10px;
+  width: 30px;
+  height: 15px;
+  background-color: gray;
+  color: #ffff;
+  padding: 5px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+#SellSpan {
+  width: 30px;
+  height: 15px;
+  background-color: gray;
+  color: #ffff;
+  padding: 5px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}

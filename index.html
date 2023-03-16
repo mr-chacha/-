@@ -4,17 +4,20 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- JS -->
     <script src="/Js/main.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./Css/style.css""
   </head>
   <body>
     <div>
       <h1>부동산 중개수수료 계산기</h1>
       <h2>지역 : 수도권</h2>
       <div>
-        <section style="display: flex">
-          <span onclick="mblock()">월세</span>
-          <span onclick="yblock()" style="padding: 0px 20px">전세</span>
-          <span onclick="sblock()">매매</span>
+        <section id="M-section">
+          <span id="M-rentSpan" onclick="mblock()">월세</span>
+          <span id="Y-rentSpan" onclick="yblock()">전세</span>
+          <span id="SellSpan" onclick="sblock()">매매</span>
         </section>
         <div id="M-rent" style="display: block">
           <!-- 월세-->
@@ -24,31 +27,32 @@
               id="aInput"
               placeholder="보증금을 입력해주세요 "
               type="number"
-              oninput="document.getElementById('aoutput').innerHTML = this.value"
+              maxlength="10"
             />
             월세 :
             <input
               id="bInput"
               placeholder="월세를 입력해주세요 "
               type="number"
-              oninput="document.getElementById('boutput').innerHTML = this.value"
+              maxlength="10"
             />
+
             <button onclick="aCalculator()">확인</button>
           </form>
-          <div style="display: flex">
-            <!-- 보증금 입력된 금액 + 원 해서보여주기 -->
-            <div id="aoutput" style="padding-right: 10px"></div>
-            <!-- 월세 입력된 금액 + 원 해서보여주기 -->
-            <div id="boutput"></div>
-          </div>
+          이건 , 찍어주는거
+          <input
+            type="text"
+            maxlength="10"
+            onkeyup="inputNumberFormat(this);"
+          />
         </div>
         <!-- 전세-->
         <div id="Y-rent" style="display: none">
           <form onsubmit="aCalculator(event)">
-            보증금 :
+            전세금 :
             <input
               id="aInput"
-              placeholder="보증금을 입력해주세요 "
+              placeholder="전세금을 입력해주세요 "
               type="number"
             />
             <button onclick="aCalculator()">확인</button>
@@ -63,7 +67,7 @@
             매매금 :
             <input
               id="aInput"
-              placeholder="보증금을 입력해주세요 "
+              placeholder="매매금을 입력해주세요 "
               type="number"
             />
             <button onclick="aCalculator()">확인</button>
@@ -74,6 +78,29 @@
         </div>
       </div>
     </div>
-    <script src="main.js"></script>
+    <script type="text/javascript">
+      function comma(str) {
+        str = String(str);
+        return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, "$1,");
+      }
+
+      function uncomma(str) {
+        str = String(str);
+        return str.replace(/[^\d]+/g, "");
+      }
+
+      function inputNumberFormat(obj) {
+        obj.value = comma(uncomma(obj.value));
+      }
+
+      function inputOnlyNumberFormat(obj) {
+        obj.value = onlynumber(uncomma(obj.value));
+      }
+
+      function onlynumber(str) {
+        str = String(str);
+        return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, "$1");
+      }
+    </script>
   </body>
 </html>

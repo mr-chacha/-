@@ -3,19 +3,28 @@ const mblock = () => {
   document.getElementById("M-rent").style.display = "block";
   document.getElementById("Y-rent").style.display = "none";
   document.getElementById("sell").style.display = "none";
+  document.getElementById("M-rentSpan").style.background = "#3478f6";
+  document.getElementById("Y-rentSpan").style.background = "gray";
+  document.getElementById("SellSpan").style.background = "gray";
 };
 
-//월세 카테고리 클릭시 보이게하기
+//전세카테고리 클릭시 보이게하기
 const yblock = () => {
   document.getElementById("M-rent").style.display = "none";
   document.getElementById("Y-rent").style.display = "block";
   document.getElementById("sell").style.display = "none";
+  document.getElementById("Y-rentSpan").style.background = "#3478f6";
+  document.getElementById("M-rentSpan").style.background = "gray";
+  document.getElementById("SellSpan").style.background = "gray";
 };
-
+//매매 카테고리 클릭시 보이게하기
 const sblock = () => {
   document.getElementById("M-rent").style.display = "none";
   document.getElementById("Y-rent").style.display = "none";
   document.getElementById("sell").style.display = "block";
+  document.getElementById("SellSpan").style.background = "#3478f6";
+  document.getElementById("Y-rentSpan").style.background = "gray";
+  document.getElementById("M-rentSpan").style.background = "gray";
 };
 
 // 수도권 월세 중개수수료 계산식
@@ -33,6 +42,8 @@ const aCalculator = (event) => {
     alert("월세를 입력해주세요");
     return;
   }
+  console.log(typeof aInput);
+  console.log(typeof bInput);
   //보증금 + 월세(100)이 5천만원보다 작으면
   if (aInput + bInput * 100 < 50000000) {
     // 보증금 + (월세*70)을하고
