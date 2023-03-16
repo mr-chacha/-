@@ -4,9 +4,76 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <script src="/Js/main.js"></script>
   </head>
   <body>
-    <h1>Document</h1>
+    <div>
+      <h1>부동산 중개수수료 계산기</h1>
+      <h2>지역 : 수도권</h2>
+      <div>
+        <section style="display: flex">
+          <span onclick="mblock()">월세</span>
+          <span onclick="yblock()" style="padding: 0px 20px">전세</span>
+          <span onclick="sblock()">매매</span>
+        </section>
+        <div id="M-rent" style="display: block">
+          <!-- 월세-->
+          <form onsubmit="aCalculator(event)">
+            보증금 :
+            <input
+              id="aInput"
+              placeholder="보증금을 입력해주세요 "
+              type="number"
+              oninput="document.getElementById('aoutput').innerHTML = this.value"
+            />
+            월세 :
+            <input
+              id="bInput"
+              placeholder="월세를 입력해주세요 "
+              type="number"
+              oninput="document.getElementById('boutput').innerHTML = this.value"
+            />
+            <button onclick="aCalculator()">확인</button>
+          </form>
+          <div style="display: flex">
+            <!-- 보증금 입력된 금액 + 원 해서보여주기 -->
+            <div id="aoutput" style="padding-right: 10px"></div>
+            <!-- 월세 입력된 금액 + 원 해서보여주기 -->
+            <div id="boutput"></div>
+          </div>
+        </div>
+        <!-- 전세-->
+        <div id="Y-rent" style="display: none">
+          <form onsubmit="aCalculator(event)">
+            보증금 :
+            <input
+              id="aInput"
+              placeholder="보증금을 입력해주세요 "
+              type="number"
+            />
+            <button onclick="aCalculator()">확인</button>
+          </form>
+          <div>
+            <!-- 보증금 입력된 금액 + 원 해서보여주기 -->
+          </div>
+        </div>
+        <!--매매-->
+        <div id="sell" style="display: none">
+          <form onsubmit="aCalculator(event)">
+            매매금 :
+            <input
+              id="aInput"
+              placeholder="보증금을 입력해주세요 "
+              type="number"
+            />
+            <button onclick="aCalculator()">확인</button>
+          </form>
+          <div>
+            <!-- 매매금 입력된 금액 + 원 해서보여주기 -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
   </body>
 </html>
