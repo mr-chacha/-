@@ -138,7 +138,7 @@ const bCalculator = (event) => {
     }
   }
   //5천만원이상 1억미만은 0.4% 최대 30만원
-  if (cInput > 50000000 && cInput <= 100000000) {
+  if (cInput > 50000000 && cInput < 100000000) {
     if (cInput * 0.004 >= 300000) {
       alert("중개수수료는 300,000원이고 부가세는 30,000원 입니다");
     } else {
@@ -149,8 +149,8 @@ const bCalculator = (event) => {
       );
     }
   }
-  //1억원이상 3억미만은 0.3%
-  if (cInput > 100000000 && cInput <= 300000000) {
+  //1억원이상 6억미만은 0.3%
+  if (cInput >= 100000000 && cInput < 600000000) {
     alert(
       `중개수수료는 ${cInput * 0.003}이고 부가세는 ${
         cInput * 0.003 * 0.1
@@ -158,18 +158,96 @@ const bCalculator = (event) => {
     );
   }
   //3억원이상 6억미만은 0.3%
-  if (cInput > 300000000 && cInput <= 600000000) {
+  if (cInput >= 600000000 && cInput < 1200000000) {
     alert(
       `중개수수료는 ${cInput * 0.004}이고 부가세는 ${
         cInput * 0.004 * 0.1
       }입니다`
     );
   }
-  //6억원이상 0.8% 이내 협의
-  if (cInput > 600000000) {
+  //12억원이상 15억미만은 0.3%
+  if (cInput >= 1200000000 && cInput < 1500000000) {
     alert(
-      `중개수수료는 ${cInput * 0.008}이고 부가세는 ${
-        cInput * 0.008 * 0.1
+      `중개수수료는 ${cInput * 0.005}이고 부가세는 ${
+        cInput * 0.005 * 0.1
+      }입니다`
+    );
+  }
+  //6억원이상 0.8% 이내 협의
+  if (cInput >= 1500000000) {
+    alert(
+      `중개수수료는 ${cInput * 0.006}이고 부가세는 ${
+        cInput * 0.006 * 0.1
+      }이내로 협의가 가능합니다.`
+    );
+  }
+};
+
+//수도권 매매 계산기
+const dCalculator = (event) => {
+  event.preventDefault();
+  const dInput = parseFloat(document.getElementById("dInput").value) * 10000;
+  if (document.getElementById("dInput").value === "") {
+    alert("매매금을 입력해주세요");
+    document.getElementById("dInput").focus();
+    return;
+  }
+
+  //5천만원 미만은 0.6% 최대 25만원
+  if (dInput <= 50000000) {
+    if (dInput * 0.006 >= 250000) {
+      alert("중개수수료는 250,000원이고 부가세는 25,000원 입니다");
+    } else {
+      alert(
+        `중개수수료는 ${dInput * 0.006}이고 부가세는 ${
+          dInput * 0.006 * 0.1
+        }입니다`
+      );
+    }
+  }
+
+  //5천만원이상 2억미만은 0.5% 최대 80만원
+  if (dInput > 50000000 && dInput <= 200000000) {
+    if (dInput * 0.005 >= 800000) {
+      alert("중개수수료는 800,000원이고 부가세는 80,000원 입니다");
+    } else {
+      alert(
+        `중개수수료는 ${dInput * 0.005}이고 부가세는 ${
+          dInput * 0.005 * 0.1
+        }입니다`
+      );
+    }
+  }
+  //2억이상 9억미만 은 0.4%
+  if (dInput >= 200000000 && dInput < 900000000) {
+    alert(
+      `중개수수료는 ${dInput * 0.004}이고 부가세는 ${
+        dInput * 0.004 * 0.1
+      }입니다`
+    );
+  }
+  //9억이상 12억미만 은 0.5%
+  if (dInput >= 900000000 && dInput < 1200000000) {
+    alert(
+      `중개수수료는 ${dInput * 0.005}이고 부가세는 ${
+        dInput * 0.005 * 0.1
+      }입니다`
+    );
+  }
+  //12억 이상 15억 미만 0.6%
+  if (dInput >= 1200000000 && dInput < 1500000000) {
+    alert(
+      `중개수수료는 ${dInput * 0.006}이고 부가세는 ${
+        dInput * 0.006 * 0.1
+      }입니다`
+    );
+  }
+  //9억원이상 0.8% 이내 협의
+
+  if (dInput >= 1500000000) {
+    alert(
+      `중개수수료는 ${dInput * 0.007}이고 부가세는 ${
+        dInput * 0.007 * 0.1
       }이내로 협의가 가능합니다.`
     );
   }
