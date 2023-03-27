@@ -6,6 +6,7 @@ const mblock = () => {
   document.getElementById("M-rentSpan").style.background = "#3478f6";
   document.getElementById("Y-rentSpan").style.background = "gray";
   document.getElementById("SellSpan").style.background = "gray";
+  document.getElementById("aInput").focus();
 };
 
 //전세카테고리 클릭시 보이게하기
@@ -16,6 +17,7 @@ const yblock = () => {
   document.getElementById("Y-rentSpan").style.background = "#3478f6";
   document.getElementById("M-rentSpan").style.background = "gray";
   document.getElementById("SellSpan").style.background = "gray";
+  document.getElementById("cInput").focus();
 };
 //매매 카테고리 클릭시 보이게하기
 const sblock = () => {
@@ -25,6 +27,7 @@ const sblock = () => {
   document.getElementById("SellSpan").style.background = "#3478f6";
   document.getElementById("Y-rentSpan").style.background = "gray";
   document.getElementById("M-rentSpan").style.background = "gray";
+  document.getElementById("dInput").focus();
 };
 
 // 수도권 월세 중개수수료 계산식
@@ -33,17 +36,18 @@ const aCalculator = (event) => {
   event.preventDefault();
   //parseFloat은 문자열을 숫자로 바꿔줌
   const aInput = parseFloat(document.getElementById("aInput").value) * 10000;
-  if (aInput === null) {
+  if (document.getElementById("aInput").value === "") {
     alert("보증금을 입력해주세요");
+    document.getElementById("aInput").focus();
     return;
   }
   const bInput = parseFloat(document.getElementById("bInput").value) * 10000;
-  if (bInput === null) {
+  if (document.getElementById("bInput").value === "") {
     alert("월세를 입력해주세요");
+    document.getElementById("bInput").focus();
     return;
   }
-  console.log(typeof aInput);
-  console.log(typeof bInput);
+
   //보증금 + 월세(100)이 5천만원보다 작으면
   if (aInput + bInput * 100 < 50000000) {
     // 보증금 + (월세*70)을하고
@@ -113,3 +117,60 @@ const aCalculator = (event) => {
   }
 };
 // 수도권 전세 계산기
+const bCalculator = (event) => {
+  event.preventDefault();
+  const cInput = parseFloat(document.getElementById("cInput").value) * 10000;
+  if (document.getElementById("cInput").value === "") {
+    alert("전세금을 입력해주세요");
+    document.getElementById("cInput").focus();
+    return;
+  }
+  //5천만원 미만은 0.5% 최대 20만원
+  if (cInput <= 50000000) {
+    if (cInput * 0.005 >= 200000) {
+      alert("중개수수료는 200,000원이고 부가세는 20,000원 입니다");
+    } else {
+      alert(
+        `중개수수료는 ${cInput * 0.005}이고 부가세는 ${
+          cInput * 0.005 * 0.1
+        }입니다`
+      );
+    }
+  }
+  //5천만원이상 1억미만은 0.4% 최대 30만원
+  if (cInput > 50000000 && cInput <= 100000000) {
+    if (cInput * 0.004 >= 300000) {
+      alert("중개수수료는 300,000원이고 부가세는 30,000원 입니다");
+    } else {
+      alert(
+        `중개수수료는 ${cInput * 0.004}이고 부가세는 ${
+          cInput * 0.004 * 0.1
+        }입니다`
+      );
+    }
+  }
+  //1억원이상 3억미만은 0.3%
+  if (cInput > 100000000 && cInput <= 300000000) {
+    alert(
+      `중개수수료는 ${cInput * 0.003}이고 부가세는 ${
+        cInput * 0.003 * 0.1
+      }입니다`
+    );
+  }
+  //3억원이상 6억미만은 0.3%
+  if (cInput > 300000000 && cInput <= 600000000) {
+    alert(
+      `중개수수료는 ${cInput * 0.004}이고 부가세는 ${
+        cInput * 0.004 * 0.1
+      }입니다`
+    );
+  }
+  //6억원이상 0.8% 이내 협의
+  if (cInput > 600000000) {
+    alert(
+      `중개수수료는 ${cInput * 0.008}이고 부가세는 ${
+        cInput * 0.008 * 0.1
+      }이내로 협의가 가능합니다.`
+    );
+  }
+};
