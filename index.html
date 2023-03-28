@@ -4,9 +4,103 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <!-- JS -->
+    <script src="/Js/main.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./Css/style.css""
   </head>
   <body>
-    <h1>Document</h1>
+    <div>
+      <h1>부동산 중개수수료 계산기</h1>
+      <h2>지역 : 수도권</h2>
+      <div>
+        <section id="M-section">
+          <span id="M-rentSpan" onclick="mblock()">월세</span>
+          <span id="Y-rentSpan" onclick="yblock()">전세</span>
+          <span id="SellSpan" onclick="sblock()">매매</span>
+        </section>
+        <div id="M-rent" style="display: block">
+          <!-- 월세-->
+          <form onsubmit="aCalculator(event)">
+            보증금 :
+            <input
+              id="aInput"
+              placeholder="보증금을 입력해주세요 "
+              type="number"
+              maxlength="10"
+            />
+            월세 :
+            <input
+              id="bInput"
+              placeholder="월세를 입력해주세요 "
+              type="number"
+              maxlength="10"
+            />
+
+            <button onclick="aCalculator()">확인</button>
+          </form>
+          이건 , 찍어주는거
+          <input
+            type="text"
+            maxlength="10"
+            onkeyup="inputNumberFormat(this);"
+          />
+        </div>
+        <!-- 전세-->
+        <div id="Y-rent" style="display: none">
+          <form onsubmit="bCalculator(event)">
+            전세금 :
+            <input
+              id="cInput"
+              placeholder="전세금을 입력해주세요 "
+              type="number"
+            />
+            <button onclick="bCalculator()">확인</button>
+          </form>
+          <div>
+            <!-- 보증금 입력된 금액 + 원 해서보여주기 -->
+          </div>
+        </div>
+        <!--매매-->
+        <div id="sell" style="display: none">
+          <form onsubmit="dCalculator(event)">
+            매매금 :
+            <input
+              id="dInput"
+              placeholder="매매금을 입력해주세요 "
+              type="number"
+            />
+            <button onclick="dCalculator()">확인</button>
+          </form>
+          <div>
+            <!-- 매매금 입력된 금액 + 원 해서보여주기 -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      function comma(str) {
+        str = String(str);
+        return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, "$1,");
+      }
+
+      function uncomma(str) {
+        str = String(str);
+        return str.replace(/[^\d]+/g, "");
+      }
+
+      function inputNumberFormat(obj) {
+        obj.value = comma(uncomma(obj.value));
+      }
+
+      function inputOnlyNumberFormat(obj) {
+        obj.value = onlynumber(uncomma(obj.value));
+      }
+
+      function onlynumber(str) {
+        str = String(str);
+        return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, "$1");
+      }
+    </script>
   </body>
 </html>
