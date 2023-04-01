@@ -35,19 +35,20 @@ const aCalculator = (event) => {
   //알럿창이 뜨고 확인버튼을 누르면 입력된 값이 사라져서 달아놓음
   event.preventDefault();
   //parseFloat은 문자열을 숫자로 바꿔줌
-  const aInput = parseFloat(document.getElementById("aInput").value) * 10000;
+  const aInput = parseFloat(document.getElementById("aInput").value) * 100;
   if (document.getElementById("aInput").value === "") {
     alert("보증금을 입력해주세요");
     document.getElementById("aInput").focus();
     return;
   }
-  const bInput = parseFloat(document.getElementById("bInput").value) * 10000;
+  const bInput = parseFloat(document.getElementById("bInput").value) * 100;
   if (document.getElementById("bInput").value === "") {
     alert("월세를 입력해주세요");
     document.getElementById("bInput").focus();
     return;
   }
-
+  console.log("aInput", aInput, typeof aInput);
+  console.log("bInput", bInput, typeof bInput);
   //보증금 + 월세(100)이 5천만원보다 작으면
   if (aInput + bInput * 100 < 50000000) {
     // 보증금 + (월세*70)을하고
@@ -116,6 +117,7 @@ const aCalculator = (event) => {
     );
   }
 };
+
 // 수도권 전세 계산기
 const bCalculator = (event) => {
   event.preventDefault();
