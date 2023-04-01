@@ -22,6 +22,31 @@
         <div id="M-rent" style="display: block">
           <!-- 월세-->
           <form onsubmit="aCalculator(event)">
+            <!-- 3자리마다 콤마찍으려면 타입이 text여야함..-->
+
+            <input
+              id="bInput"
+              placeholder="테스트 "
+              type="text"
+              id="number"
+              class="id2"
+            />
+            <script>
+              const inputs = document.querySelector(".id2");
+              inputs.addEventListener("input", function (e) {
+                let value = e.target.value;
+                value = Number(value.replaceAll(",", ""));
+                if (isNaN(value)) {
+                  // NaN인 경우
+                  inputs.value = "";
+                } else {
+                  // NaN이 아닌 경우
+                  const formatValue = value.toLocaleString("ko-KR");
+                  inputs.value = formatValue;
+                }
+              });
+            </script>
+
             보증금 :
             <input
               id="aInput"
@@ -29,22 +54,18 @@
               type="number"
               maxlength="10"
             />
+
             월세 :
             <input
               id="bInput"
               placeholder="월세를 입력해주세요 "
-              type="number"
+              type="text"
               maxlength="10"
+              class="id"
             />
 
             <button onclick="aCalculator()">확인</button>
           </form>
-          이건 , 찍어주는거
-          <input
-            type="text"
-            maxlength="10"
-            onkeyup="inputNumberFormat(this);"
-          />
         </div>
         <!-- 전세-->
         <div id="Y-rent" style="display: none">

@@ -43,3 +43,10 @@
   align-items: center;
   cursor: pointer;
 }
+
+/* input창 안에 타입이 number일때 옆에 화살표 제거 */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
