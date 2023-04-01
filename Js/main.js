@@ -35,13 +35,13 @@ const aCalculator = (event) => {
   //알럿창이 뜨고 확인버튼을 누르면 입력된 값이 사라져서 달아놓음
   event.preventDefault();
   //parseFloat은 문자열을 숫자로 바꿔줌
-  const aInput = parseFloat(document.getElementById("aInput").value) * 100;
+  const aInput = parseFloat(document.getElementById("aInput").value) * 10000;
   if (document.getElementById("aInput").value === "") {
     alert("보증금을 입력해주세요");
     document.getElementById("aInput").focus();
     return;
   }
-  const bInput = parseFloat(document.getElementById("bInput").value) * 100;
+  const bInput = parseFloat(document.getElementById("bInput").value) * 10000;
   if (document.getElementById("bInput").value === "") {
     alert("월세를 입력해주세요");
     document.getElementById("bInput").focus();
