@@ -88,6 +88,8 @@ input::-webkit-inner-spin-button {
   margin-top: 20px;
   gap: 10px;
   justify-content: space-between;
+
+  align-items: center;
 }
 
 .aInput {
@@ -100,6 +102,7 @@ input::-webkit-inner-spin-button {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 2px;
 }
 .Input input {
   padding: 3px;
