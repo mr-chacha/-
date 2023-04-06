@@ -6,6 +6,9 @@ const mblock = () => {
   document.getElementById("M-rentSpan").style.background = "#3478f6";
   document.getElementById("Y-rentSpan").style.background = "gray";
   document.getElementById("SellSpan").style.background = "gray";
+  document.getElementsByClassName("aInput").value = "";
+  document.getElementById("aInput").value = "";
+  document.getElementById("bInput").value = "";
   document.getElementById("aInput").focus();
 };
 
@@ -17,6 +20,7 @@ const yblock = () => {
   document.getElementById("Y-rentSpan").style.background = "#3478f6";
   document.getElementById("M-rentSpan").style.background = "gray";
   document.getElementById("SellSpan").style.background = "gray";
+  document.getElementById("cInput").value = "";
   document.getElementById("cInput").focus();
 };
 //매매 카테고리 클릭시 보이게하기
@@ -27,6 +31,7 @@ const sblock = () => {
   document.getElementById("SellSpan").style.background = "#3478f6";
   document.getElementById("Y-rentSpan").style.background = "gray";
   document.getElementById("M-rentSpan").style.background = "gray";
+  document.getElementById("dInput").value = "";
   document.getElementById("dInput").focus();
 };
 

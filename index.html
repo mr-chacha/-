@@ -31,10 +31,10 @@
                   class="aInput"
                   id="aInput"
                   placeholder="보증금을 입력해주세요 "
-                  type="number"
+                  type="text"
                   maxlength="10"
                 />
-                원
+                만원
               </div>
             </div>
             <div class="Inputdiv">
@@ -47,7 +47,7 @@
                   maxlength="10"
                   class="aInput"
                 />
-                원
+                만원
               </div>
             </div>
             <button onclick="aCalculator()">계산하기</button>
@@ -55,14 +55,20 @@
         </div>
         <!-- 전세-->
         <div id="Y-rent" style="display: none">
-          <form onsubmit="bCalculator(event)">
-            전세금 :
-            <input
-              id="cInput"
-              placeholder="전세금을 입력해주세요 "
-              type="number"
-            />
-            <button onclick="bCalculator()">확인</button>
+          <form onsubmit="bCalculator(event)" class="Inputbox">
+            <div class="Inputdiv">
+              전세금
+              <div class="Input">
+                <input
+                  id="cInput"
+                  placeholder="전세금을 입력해주세요 "
+                  type="number"
+                  class="aInput"
+                />
+                만원
+              </div>
+            </div>
+            <button onclick="bCalculator()">계산하기</button>
           </form>
           <div>
             <!-- 보증금 입력된 금액 + 원 해서보여주기 -->
@@ -70,14 +76,20 @@
         </div>
         <!--매매-->
         <div id="sell" style="display: none">
-          <form onsubmit="dCalculator(event)">
-            매매금 :
-            <input
-              id="dInput"
-              placeholder="매매금을 입력해주세요 "
-              type="number"
-            />
-            <button onclick="dCalculator()">확인</button>
+          <form onsubmit="dCalculator(event)" class="Inputbox">
+            <div class="Inputdiv">
+              매매금
+              <div class="Input">
+                <input
+                  id="dInput"
+                  placeholder="매매금을 입력해주세요 "
+                  type="number"
+                  class="aInput"
+                />
+                만원
+              </div>
+            </div>
+            <button onclick="dCalculator()">계산하기</button>
           </form>
           <div>
             <!-- 매매금 입력된 금액 + 원 해서보여주기 -->
