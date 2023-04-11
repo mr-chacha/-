@@ -121,3 +121,19 @@ input::-webkit-inner-spin-button {
   border: none;
   margin-top: 20px;
 }
+.house {
+  border: 1px solid black;
+  padding: 3px;
+}
+.house :hover {
+  background-color: #3478f6;
+  border-radius: 10px;
+  color: white;
+  padding: 3px;
+}
+.house span {
+  margin: 5px 5px;
+}
+.location {
+  margin: 10px 0px;
+}
