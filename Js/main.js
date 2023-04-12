@@ -23,6 +23,7 @@ const yblock = () => {
   document.getElementById("cInput").value = "";
   document.getElementById("cInput").focus();
 };
+
 //매매 카테고리 클릭시 보이게하기
 const sblock = () => {
   document.getElementById("M-rent").style.display = "none";
@@ -149,6 +150,7 @@ const sblock = () => {
 //     );
 //   }
 // };
+
 //월세 test
 const aCalculator = (event) => {
   //알럿창이 뜨고 확인버튼을 누르면 입력된 값이 사라져서 달아놓음
