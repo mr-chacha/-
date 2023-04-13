@@ -12,7 +12,7 @@ body {
   margin-bottom: 20px;
 }
 
-#M-rentSpan {
+/* #M-rentSpan {
   width: 30px;
   height: 15px;
   background-color: #3478f6;
@@ -50,7 +50,7 @@ body {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-}
+} */
 h1 h2 {
   margin: 0px;
   padding: 0px;
@@ -77,10 +77,24 @@ input::-webkit-inner-spin-button {
   flex-direction: column;
   align-items: center;
 }
+
 .category {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.category span {
+  margin: 0px 10px;
+  width: 30px;
+  height: 15px;
+  background-color: gray;
+  color: #ffff;
+  padding: 5px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 .Inputdiv {
   display: flex;
@@ -121,19 +135,20 @@ input::-webkit-inner-spin-button {
   border: none;
   margin-top: 20px;
 }
-.house {
-  border: 1px solid black;
-  padding: 3px;
+.type {
+  display: flex;
+
+  border-radius: 5px;
+  cursor: pointer;
 }
-.house :hover {
-  background-color: #3478f6;
-  border-radius: 10px;
-  color: white;
-  padding: 3px;
+.type :hover {
+  background-color: rgb(223, 206, 206);
 }
-.house span {
-  margin: 5px 5px;
+.type span {
+  padding: 10px;
+  background-color: #f3eaea;
 }
+
 .location {
   margin: 10px 0px;
 }
